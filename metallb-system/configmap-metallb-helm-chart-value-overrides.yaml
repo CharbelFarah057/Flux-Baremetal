@@ -4,7 +4,7 @@ metadata:
   name: metallb-helm-chart-value-overrides
   namespace: metallb-system
 data:
-  values.yaml:
+  values.yaml: |-
     # Default values for metallb.
     # This is a YAML-formatted file.
     # Declare variables to be passed into your templates.
