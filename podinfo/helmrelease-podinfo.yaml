@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: podinfo
-      version: 6.x
+      version: 28.x
       sourceRef:
         kind: HelmRepository
         name: podinfo
