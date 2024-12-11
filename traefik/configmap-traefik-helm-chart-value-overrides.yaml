@@ -5,7 +5,7 @@ metadata:
   name: traefik-helm-chart-value-overrides
   namespace: traefik
 data:
-  values.yaml: |-  
+  values.yaml: |-
   # Default values for Traefik
   # This is a YAML-formatted file.
   # Declare variables to be passed into templates
@@ -401,8 +401,9 @@ data:
 
     ## -- Prometheus is enabled by default.
     ## -- It can be disabled by setting "prometheus: null"
-    prometheus: null
-    
+    prometheus: 
+      enabled: false
+
     otlp:
       # -- Set to true in order to enable the OpenTelemetry metrics
       enabled: false
