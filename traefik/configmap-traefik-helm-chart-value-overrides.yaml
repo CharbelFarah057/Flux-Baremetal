@@ -401,8 +401,7 @@ data:
 
     ## -- Prometheus is enabled by default.
     ## -- It can be disabled by setting "prometheus: null"
-    prometheus: 
-      enabled: false
+    prometheus: ""
 
     otlp:
       # -- Set to true in order to enable the OpenTelemetry metrics
