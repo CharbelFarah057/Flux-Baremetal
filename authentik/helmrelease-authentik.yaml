@@ -15,7 +15,7 @@ spec:
   interval: 15m
   timeout: 5m
   releaseName: authentik
-  values:
+  values: |-  
     # -- Provide a name in place of `authentik`. Prefer using global.nameOverride if possible
     nameOverride: ""
     # -- String to fully override `"authentik.fullname"`. Prefer using global.fullnameOverride if possible
