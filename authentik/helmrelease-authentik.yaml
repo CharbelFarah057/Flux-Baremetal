@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: authentik
-      version: 2023.10.x # auto-update to semver bugfixes only 
+      version: 2024.10.x # auto-update to semver bugfixes only 
       sourceRef:
         kind: HelmRepository
         name: authentik
@@ -16,6 +16,7 @@ spec:
   timeout: 5m
   releaseName: authentik
   values: |-  
+    ---
     # -- Provide a name in place of `authentik`. Prefer using global.nameOverride if possible
     nameOverride: ""
     # -- String to fully override `"authentik.fullname"`. Prefer using global.fullnameOverride if possible
