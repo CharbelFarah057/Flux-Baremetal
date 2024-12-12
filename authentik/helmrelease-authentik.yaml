@@ -16,7 +16,6 @@ spec:
   timeout: 5m
   releaseName: authentik
   values: |-  
-    ---
     ## Authentik configuration
     authentik:
       # -- Log level for server and worker
