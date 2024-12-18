@@ -419,18 +419,34 @@ data:
         # -- additional ingress labels
         labels: {}
         # -- defines which ingress controller will implement the resource
-        ingressClassName: "traefik"
+        ingressClassName: ""
         # -- List of ingress hosts
         hosts: []
+          # - authentik.domain.tld
+
+        # -- List of ingress paths
         paths:
           - /
+        # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
         pathType: Prefix
+        # -- additional ingress paths
         extraPaths: []
+          # - path: /*
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: ssl-redirect
+          #       port:
+          #         name: use-annotation
 
+        # -- ingress TLS configuration
         tls: []
+          # - secretName: authentik-tls
+          #   hosts:
+          #     - authentik.domain.tld
 
+        # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
         https: false
-
 
     ## authentik worker
     worker:
