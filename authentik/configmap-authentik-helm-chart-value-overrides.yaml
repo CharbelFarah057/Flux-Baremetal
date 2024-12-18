@@ -421,11 +421,7 @@ data:
         # Optional ingress labels
         labels: {}
         # List of ingress hosts (use your IP address here)
-        hosts:
-          - host: ""
-            paths:
-              - path: "/"
-                pathType: Prefix
+        hosts: []
         # Disable TLS for now, will configure HTTPS later
         tls: []
         # Use HTTP for now
