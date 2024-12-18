@@ -422,6 +422,14 @@ data:
         labels: {}
         # List of ingress hosts (use your IP address here)
         hosts: []
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: authentik-service
+                port:
+                  number: 9000
         # Disable TLS for now, will configure HTTPS later
         tls: []
         # Use HTTP for now
