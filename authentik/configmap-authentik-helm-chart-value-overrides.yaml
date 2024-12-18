@@ -422,7 +422,7 @@ data:
         labels: {}
         # List of ingress hosts (use your IP address here)
         hosts:
-          - host: "137.194.194.227"
+          - host: ""
             paths:
               - path: "/"
                 pathType: Prefix
