@@ -412,44 +412,22 @@ data:
           annotations: {}
 
       ingress:
-        # -- enable an ingress resource for the authentik server
         enabled: true
-
-        # -- additional ingress annotations
         annotations:
           kubernetes.io/ingress.class: "traefik"
           traefik.ingress.kubernetes.io/router.tls: "true"
-
-        # -- additional ingress labels
         labels: {}
-
-        # -- defines which ingress controller will implement the resource
         ingressClassName: "traefik"
-
-        # -- List of ingress hosts
         hosts:
-          - host: authentik.localhost
+          - host: authentik.local
             paths:
               - path: /
                 pathType: Prefix
-
-        # -- additional ingress paths
         extraPaths: []
-          # - path: /*
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: ssl-redirect
-          #       port:
-          #         name: use-annotation
-
-        # -- ingress TLS configuration
         tls:
           - secretName: authentik-cert
             hosts:
-              - authentik.localhost
-
-        # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
+              - authentik.local
         https: true
 
     ## authentik worker
