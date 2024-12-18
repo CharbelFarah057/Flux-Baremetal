@@ -412,28 +412,28 @@ data:
           annotations: {}
 
       ingress:
+        # -- enable an ingress resource for the authentik server
         enabled: true
-        # Specify Traefik as the ingress controller
-        ingressClassName: "traefik"
-        # Add annotations for Traefik ingress
-        annotations:
+        # -- additional ingress annotations
+        annotations: 
           traefik.ingress.kubernetes.io/router.entrypoints: "web"
-        # Optional ingress labels
+        # -- additional ingress labels
         labels: {}
-        # List of ingress hosts (use your IP address here)
-        hosts: []
+        # -- defines which ingress controller will implement the resource
+        ingressClassName: "traefik"
+        # -- List of ingress hosts
+        hosts: 
+          - 137.194.194.226
+
         paths:
-          - path: "/"
-            pathType: Prefix
-            backend:
-              service:
-                name: authentik-service
-                port:
-                  number: 9000
-        # Disable TLS for now, will configure HTTPS later
+          - /
+        pathType: Prefix
+        extraPaths: []
+
         tls: []
-        # Use HTTP for now
+
         https: false
+
 
     ## authentik worker
     worker:
