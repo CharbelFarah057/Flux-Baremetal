@@ -241,8 +241,8 @@ data:
 
     sources:
       - crd
-      - service
-      - ingress
+      # - service
+      # - ingress
 
     # -- How DNS records are synchronized between sources and providers; available values are `sync` & `upsert-only`.
     policy: upsert-only
