@@ -238,6 +238,9 @@ data:
       - crd
       # - service
       # - ingress
+    
+    provider:
+      - name: cloudflare
 
     cloudflare:
       ## @param cloudflare.apiToken When using the Cloudflare provider, `CF_API_TOKEN` to set (optional)
@@ -348,10 +351,8 @@ data:
 
     # -- Extra arguments to provide to _ExternalDNS_.
     extraArgs:
-      - --source=service
-      - --source=ingress
       - --provider=cloudflare
-      - --cloudflare-proxied=true # Enable Cloudflare proxy for DDoS protection and CDN
+      - --cloudflare-proxied=true
       - --registry=txt
 
     secretConfiguration:
