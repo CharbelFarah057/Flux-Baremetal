@@ -10,7 +10,7 @@ spec:
       version: 8.7.x # auto-update to semver bugfixes only 
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: external-dns
         namespace: flux-system
   interval: 15m
   timeout: 5m
