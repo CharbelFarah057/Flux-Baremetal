@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: traefik.baremetal-telecom.online
+  namespace: traefik
+spec:
+  endpoints:
+  - dnsName: traefik.baremetal-telecom.online
+    recordTTL: 180
+    recordType: A
+    targets:
+    - 137.194.194.226
