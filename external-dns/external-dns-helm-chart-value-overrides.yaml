@@ -244,14 +244,6 @@ data:
       # - service
       # - ingress
 
-    cloudflare:
-      apiToken: ""           # Leave this empty when using a secret
-      apiKey: ""             # Leave this empty
-      email: ""              # Leave this empty
-      secretName: "cloudflare-api-token"  # Reference to the secret containing the API token
-      proxied: true          # Enable Cloudflare proxy (CDN, DDoS protection)
-      dnsRecordsPerPage: 100 # Fetch up to 100 records per page
-
     # -- How DNS records are synchronized between sources and providers; available values are `sync` & `upsert-only`.
     policy: upsert-only
 
@@ -281,7 +273,9 @@ data:
 
     provider: cloudflare
     
-    extraArgs: []
+    extraArgs:
+      - --cloudflare-proxied
+      - --cloudflare-dns-records-per-page=100
 
     secretConfiguration:
       # -- If `true`, create a `Secret` to store sensitive provider configuration (**DEPRECATED**).
