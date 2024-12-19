@@ -238,9 +238,6 @@ data:
       - crd
       # - service
       # - ingress
-    
-    provider:
-      - name: cloudflare
 
     cloudflare:
       ## @param cloudflare.apiToken When using the Cloudflare provider, `CF_API_TOKEN` to set (optional)
@@ -293,7 +290,7 @@ data:
 
     provider:
       # -- _ExternalDNS_ provider name; for the available providers and how to configure them see [README](https://github.com/kubernetes-sigs/external-dns/blob/master/charts/external-dns/README.md#providers).
-      name: aws
+      name: cloudflare
       webhook:
         image:
           # -- (string) Image repository for the `webhook` container.
@@ -350,10 +347,7 @@ data:
           relabelings: []
 
     # -- Extra arguments to provide to _ExternalDNS_.
-    extraArgs:
-      - --provider=cloudflare
-      - --cloudflare-proxied=true
-      - --registry=txt
+    extraArgs: []
 
     secretConfiguration:
       # -- If `true`, create a `Secret` to store sensitive provider configuration (**DEPRECATED**).
