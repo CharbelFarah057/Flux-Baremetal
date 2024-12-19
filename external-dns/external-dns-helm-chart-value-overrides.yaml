@@ -133,7 +133,12 @@ data:
         drop: ["ALL"]
 
     # -- [Environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) for the `external-dns` container.
-    env: []
+    env:
+      - name: CF_API_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: cloudflare-api-token
+            key: cloudflare-api-token
 
     # -- [Liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) configuration for the `external-dns` container.
     # @default -- See _values.yaml_
@@ -240,9 +245,12 @@ data:
       # - ingress
 
     cloudflare:
-      apiToken: "OnfDQ4F8iuTYWUv66BMQ5HjmeM6ncIEP04Z7wkGt"
-      proxied: true
-      dnsRecordsPerPage: 100
+      apiToken: ""           # Leave this empty when using a secret
+      apiKey: ""             # Leave this empty
+      email: ""              # Leave this empty
+      secretName: "cloudflare-api-token"  # Reference to the secret containing the API token
+      proxied: true          # Enable Cloudflare proxy (CDN, DDoS protection)
+      dnsRecordsPerPage: 100 # Fetch up to 100 records per page
 
     # -- How DNS records are synchronized between sources and providers; available values are `sync` & `upsert-only`.
     policy: upsert-only
