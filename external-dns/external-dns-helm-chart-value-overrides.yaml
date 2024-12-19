@@ -240,25 +240,8 @@ data:
       # - ingress
 
     cloudflare:
-      ## @param cloudflare.apiToken When using the Cloudflare provider, `CF_API_TOKEN` to set (optional)
-      ##
       apiToken: "OnfDQ4F8iuTYWUv66BMQ5HjmeM6ncIEP04Z7wkGt"
-      ## @param cloudflare.apiKey When using the Cloudflare provider, `CF_API_KEY` to set (optional)
-      ##
-      apiKey: ""
-      ## @param cloudflare.secretName When using the Cloudflare provider, it's the name of the secret containing cloudflare_api_token or cloudflare_api_key.
-      ## This ignores cloudflare.apiToken, and cloudflare.apiKey
-      ##
-      secretName: ""
-      ## @param cloudflare.email When using the Cloudflare provider, `CF_API_EMAIL` to set (optional). Needed when using CF_API_KEY
-      ##
-      email: ""
-      ## @param cloudflare.proxied When using the Cloudflare provider, enable the proxy feature (DDOS protection, CDN...) (optional)
-      ##
       proxied: true
-      ## @param cloudflare.dnsRecordsPerPage Number of DNS records to fetch per page. (optional)
-      ## When using the Cloudflare provider, specify how many DNS records listed per page, max possible 5,000 (default: 100)
-      ##
       dnsRecordsPerPage: 100
 
     # -- How DNS records are synchronized between sources and providers; available values are `sync` & `upsert-only`.
