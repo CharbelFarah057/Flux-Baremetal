@@ -4,7 +4,7 @@ metadata:
   name: cert-manager-helm-chart-value-overrides
   namespace: cert-manager
 data:
-  values.yaml:
+  values.yaml: |-
       global:
         imageRegistry: ""
         imagePullSecrets: []
@@ -131,7 +131,7 @@ data:
           create: true
           name: ""
           annotations: {}
-          automountServiceAccountToken: false
+          automountServiceAccountToken: true
         networkPolicy:
           enabled: true
           allowExternal: true
