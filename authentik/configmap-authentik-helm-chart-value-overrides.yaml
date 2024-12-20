@@ -413,7 +413,7 @@ data:
 
       ingress:
         # -- enable an ingress resource for the authentik server
-        enabled: false
+        enabled: true
 
         # -- additional ingress annotations
         annotations:
@@ -428,7 +428,7 @@ data:
 
         # -- List of ingress hosts
         hosts:
-          - authentik.local
+          - authentik.baremetal-telecom.online
 
         # -- List of ingress paths
         paths:
@@ -865,7 +865,8 @@ data:
       auth:
         enabled: false
       master:
-        resourcesPreset: "none"
+        persistence:
+          size: 1Gi
       replica:
         resourcesPreset: "none"
       sentinel:
