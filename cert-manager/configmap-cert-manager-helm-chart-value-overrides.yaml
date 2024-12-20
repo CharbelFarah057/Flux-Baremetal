@@ -131,7 +131,7 @@ data:
           create: true
           name: ""
           annotations: {}
-          automountServiceAccountToken: false
+          automountServiceAccountToken: true
         networkPolicy:
           enabled: true
           allowExternal: true
