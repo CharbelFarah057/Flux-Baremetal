@@ -447,13 +447,10 @@ data:
           #         name: use-annotation
 
         # -- ingress TLS configuration
-        tls:
-          - secretName: authentik-cert
-            hosts:
-              - authentik.local
+        tls: []
 
         # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
-        https: true
+        https: false
 
     ## authentik worker
     worker:
