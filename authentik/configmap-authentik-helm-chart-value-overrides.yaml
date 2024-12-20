@@ -413,7 +413,7 @@ data:
 
       ingress:
         # -- enable an ingress resource for the authentik server
-        enabled: true
+        enabled: false
 
         # -- additional ingress annotations
         annotations:
@@ -450,7 +450,7 @@ data:
         tls: []
 
         # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
-        https: false
+        https: true
 
     ## authentik worker
     worker:
@@ -862,8 +862,7 @@ data:
       auth:
         enabled: false
       master:
-        persistence:
-          size: 1Gi
+        resourcesPreset: "none"
       replica:
         resourcesPreset: "none"
       sentinel:
