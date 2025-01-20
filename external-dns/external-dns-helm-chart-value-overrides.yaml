@@ -274,7 +274,6 @@ data:
     provider: cloudflare
     
     extraArgs:
-      - --cloudflare-proxied
       - --cloudflare-dns-records-per-page=100
 
     secretConfiguration:
