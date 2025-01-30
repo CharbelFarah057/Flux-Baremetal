@@ -419,6 +419,7 @@ data:
         annotations:
           kubernetes.io/ingress.class: "traefik"
           traefik.ingress.kubernetes.io/router.tls: "true"
+          cert-manager.io/cluster-issuer: "letsencrypt-prod"
 
         # -- additional ingress labels
         labels: {}
