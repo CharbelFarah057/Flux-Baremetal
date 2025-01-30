@@ -447,10 +447,7 @@ data:
           #         name: use-annotation
 
         # -- ingress TLS configuration
-        tls:
-          - secretName: letsencrypt-wildcard-cert-baremetal-telecom.online-prod
-            hosts:
-              - authentik.baremetal-telecom.online
+        tls: []
 
         # -- uses `server.service.servicePortHttps` instead of `server.service.servicePortHttp`
         https: true
