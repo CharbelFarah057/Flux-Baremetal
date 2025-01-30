@@ -1,0 +1,12 @@
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: "authentik.baremetal-telecom.online"
+  namespace: authentik
+spec:
+  endpoints:
+  - dnsName: "authentik.baremetal-telecom.online"
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - "traefik.baremetal-telecom.online"
