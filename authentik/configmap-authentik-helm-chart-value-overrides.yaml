@@ -413,7 +413,7 @@ data:
 
       ingress:
         # -- enable an ingress resource for the authentik server
-        enabled: true
+        enabled: false
 
         # -- additional ingress annotations
         annotations:
