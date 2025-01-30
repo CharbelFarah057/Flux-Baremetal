@@ -448,7 +448,7 @@ data:
 
         # -- ingress TLS configuration
         tls:
-          - secretName: letsencrypt-wildcard-cert-baremetal-telecom.online-prod
+          - secretName: "letsencrypt-wildcard-cert-baremetal-telecom.online-prod"
             hosts:
               - authentik.baremetal-telecom.online
 
