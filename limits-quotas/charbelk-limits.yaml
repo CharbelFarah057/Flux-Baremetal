@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: charbelk-limits
+  namespace: charbelk
+spec:
+  limits:
+  - max:
+      cpu: "500m"
+      memory: "512Mi"
+    min:
+      cpu: "100m"
+      memory: "128Mi"
+    type: Container

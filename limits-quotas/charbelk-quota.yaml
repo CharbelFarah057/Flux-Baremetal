@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: charbelk-quota
+  namespace: charbelk
+spec:
+  hard:
+    pods: "5"                      # Limit number of pods
+    requests.cpu: "3"              # Total CPU request across all pods
+    requests.memory: "1Gi"         # Total memory request across all pods
+    limits.cpu: "4"                # Total CPU limit across all pods
+    limits.memory: "2Gi"           # Total memory limit across all pods
