@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: podinfo-ingress
+  namespace: charbelk
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: podinfo-charbelk.baremetal-telecom.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: podinfo-lb
+                port:
+                  number: 9898  # Direct HTTP traffic to the service
+  tls:
+    - secretName: letsencrypt-wildcard-cert-baremetal-telecom.online-prod  # TLS secret for HTTPS traffic
+      hosts:
+        - podinfo-charbelk.baremetal-telecom.online
