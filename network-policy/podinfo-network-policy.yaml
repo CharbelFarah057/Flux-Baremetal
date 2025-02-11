@@ -1,0 +1,81 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: namespace-isolation-with-world-access-podinfo
+  namespace: podinfo
+spec:
+  description: |
+    - Isolate namespace traffic so pods can only communicate within the namespace.
+    - Allow ingress traffic from LoadBalancers.
+    - Allow egress traffic to the external world.
+  endpointSelector:
+    matchLabels: {}  # Applies to all pods in this namespace
+  ingress:
+      # Allow traffic only within the same namespace
+    - fromEndpoints:
+        - matchLabels:
+            "k8s:io.kubernetes.pod.namespace": "podinfo"
+        - matchLabels:
+            "k8s:io.kubernetes.pod.namespace" : "traefik"
+
+    # Allow ingress traffic from LoadBalancers (external sources)
+    - fromEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "80"
+              protocol: TCP
+            - port: "443"
+              protocol: TCP
+            - port: "53"
+              protocol: UDP
+            - port: "53"
+              protocol: TCP
+        
+  egress:
+      # Maintain namespace isolation for egress
+    - toEndpoints:
+        - matchLabels:
+            "k8s:io.kubernetes.pod.namespace": "podinfo"
+
+    # Allow egress to services inside charbelk namespace
+    - toServices:
+      - k8sService:
+          serviceName: "*"
+          namespace: "podinfo"
+
+    # Allow egress to internal cluster nodes (remote-node)
+    - toEntities:
+        - remote-node
+      toPorts:
+        - ports:
+            - port: "30000"
+              endPort: 32767
+              protocol: TCP
+    
+    # Allow egress traffic to the external world
+    - toEntities:
+        - world  # Allow outgoing connections to the internet
+      toPorts:
+        - ports:
+            - port: "80"   # HTTP
+              protocol: TCP
+            - port: "443"  # HTTPS
+              protocol: TCP
+            - port: "53"
+              protocol: UDP
+            - port: "53"
+              protocol: TCP
+
+    # Allow egress traffic to internal dns
+    - toEndpoints:
+      - matchLabels:
+          "k8s:io.kubernetes.pod.namespace": kube-system
+          "k8s:k8s-app": kube-dns
+      toPorts:
+        - ports:
+           - port: "53"
+             protocol: ANY
+          rules:
+            dns:
+              - matchPattern: "*"
